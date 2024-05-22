@@ -1,9 +1,9 @@
 create database databasename 
--- database oluşturur
+-- database oluÅŸturur
 
 use boardgame
 
--- boardgame adlı database üzerinde işlem yapacağımı belirttim bu komut ile
+-- boardgame adlÄ± database Ã¼zerinde iÅŸlem yapacaÄŸÄ±mÄ± belirttim bu komut ile
 
 
 
@@ -16,34 +16,48 @@ ID_Rozet INT PRIMARY KEY NOT NULL,
 Ad_Rozet varchar(50)
 )
 
-create table YAYINTÜRÜ(
-ID_Yayıntürü INT PRIMARY KEY NOT NULL,
-Ad_Yayıntürü varchar(50))
+create table YAYINTÃœRÃœ(
+ID_YayÄ±ntÃ¼rÃ¼ INT PRIMARY KEY NOT NULL,
+Ad_YayÄ±ntÃ¼rÃ¼ varchar(50))
 
 create table YAYIN(
-ID_Yayın INT PRIMARY KEY NOT NULL,
-ID_Yayıntürü INT NOT NULL,
-Tarih_Yayın varchar(10),
-Başlık_Yayın varchar(50),
-BeğenenSayısı_Yayın int,
-MesajMetni_Yayın text,
+ID_YayÄ±n INT PRIMARY KEY NOT NULL,
+ID_YayÄ±ntÃ¼rÃ¼ INT FOREIGN KEY REFERENCES YAYINRÃœRÃœ(ID_YayÄ±ntÃ¼rÃ¼) NOT NULL,
+ID_Ãœye INT FOREGIN KEY REFERENCES ÃœYE(ID_Ãœye) NOT NULL,
+Tarih_YayÄ±n varchar(10),
+BaÅŸlÄ±k_YayÄ±n varchar(50),
+BeÄŸenenSayÄ±sÄ±_YayÄ±n int,
+MesajMetni_YayÄ±n text,
 )
---YAYIN İLE YAYINTÜRÜ ARASINDA 1-N İLİŞKİ VAR N YAYIN YANİ TÜRÜN ID Sİ ORAYA EKLENİR
+--YAYIN Ä°LE YAYINTÃœRÃœ ARASINDA 1-N Ä°LÄ°ÅKÄ° VAR N YAYIN YANÄ° TÃœRÃœN ID SÄ° ORAYA EKLENÄ°R
+--YAYIN Ä°LE ÃœYE ARASINDA N-1 Ä°LÄ°ÅKÄ° VAR YANÄ° N YAYIN ÃœYENÄ°N ID SÄ° ORAYA EKLENÄ°R
 
 
 
 
 
+  
 
-create table ÜYE(
-ID_Üye INT PRIMARY KEY NOT NULL,
-AD_Üye varchar(50),
-SOYAD_Üye varchar(50),
-Cinsiyet varchar(1),
-DoğumTarihi varchar(10),
-Yaş varchar(3), --kesikli
-E_mail varchar(50),
-
-
-
+create table ÃœYE(
+ID_Ãœye INT PRIMARY KEY NOT NULL,
+AD_Ãœye VARCHAR(50),
+SOYAD_Ãœye VARCHAR(50),
+Cinsiyet VARCHAR(1),
+DogumTarihi VARCHAR(10),
+YaÅŸ VARCHAR(3), --kesikli
+E_mail VARCHAR(50),
+Åifre VARCHAR(50),
+Durum VARCHAR(50),
+KayÄ±t_Tarihi VARCHAR(10),
+AÃ§Ä±klama VARCHAR(100),
+KullanÄ±cÄ±_TÃ¼rÃ¼ VARCHAR(50),
+Seviye INT,
+Son_GiriÅŸ_Tarihi VARCHAR(10),
+Takip_Eden_KullanÄ±cÄ±_SayÄ±sÄ± INT,
+BeÄŸenen_KullanÄ±cÄ±_SayÄ±sÄ± INT,
+BeÄŸenilen_KullanÄ±cÄ±_SayÄ±sÄ± INT,
+Profil_BaÄŸlantÄ±sÄ± VARCHAR(200),
+Son_Profil_GÃ¼ncelleme_Tarihi VARCHAR(10),
 )
+
+
