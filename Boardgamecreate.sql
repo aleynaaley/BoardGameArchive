@@ -16,7 +16,7 @@ ID_Rozet INT PRIMARY KEY NOT NULL,
 Ad_Rozet varchar(50)
 )
 
-create table YAYINTÜRÜ(
+create table YAYINTURU(
 ID_Yayıntürü INT PRIMARY KEY NOT NULL,
 Ad_Yayıntürü varchar(50))
 
@@ -38,7 +38,7 @@ MesajMetni_Yayın text,
 
   
 
-create table ÜYE(
+create table UYE(
 ID_Üye INT PRIMARY KEY NOT NULL,
 AD_Üye VARCHAR(50),
 SOYAD_Üye VARCHAR(50),
