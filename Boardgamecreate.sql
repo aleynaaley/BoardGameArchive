@@ -17,17 +17,17 @@ Ad_Rozet varchar(50)
 )
 
 create table YAYINTURU(
-ID_Yayıntürü INT PRIMARY KEY NOT NULL,
-Ad_Yayıntürü varchar(50))
+ID_Yayinturu INT PRIMARY KEY NOT NULL,
+Ad_Yayinturu varchar(50))
 
 create table YAYIN(
-ID_Yayın INT PRIMARY KEY NOT NULL,
-ID_Yayıntürü INT FOREIGN KEY REFERENCES YAYINRÜRÜ(ID_Yayıntürü) NOT NULL,
-ID_Üye INT FOREGIN KEY REFERENCES ÜYE(ID_Üye) NOT NULL,
-Tarih_Yayın varchar(10),
-Başlık_Yayın varchar(50),
-BeğenenSayısı_Yayın int,
-MesajMetni_Yayın text,
+ID_Yayin INT PRIMARY KEY NOT NULL,
+ID_Yayinturu INT FOREIGN KEY REFERENCES YAYINTURU(ID_Yayinturu) NOT NULL,
+ID_Uye INT FOREGIN KEY REFERENCES UYE(ID_Uye) NOT NULL,
+Tarih_Yayin varchar(10),
+Baslik_Yayin varchar(50),
+BegenenSayisi_Yayin int,
+MesajMetni_Yayin text,
 )
 --YAYIN İLE YAYINTÜRÜ ARASINDA 1-N İLİŞKİ VAR N YAYIN YANİ TÜRÜN ID Sİ ORAYA EKLENİR
 --YAYIN İLE ÜYE ARASINDA N-1 İLİŞKİ VAR YANİ N YAYIN ÜYENİN ID Sİ ORAYA EKLENİR
@@ -39,25 +39,25 @@ MesajMetni_Yayın text,
   
 
 create table UYE(
-ID_Üye INT PRIMARY KEY NOT NULL,
-AD_Üye VARCHAR(50),
-SOYAD_Üye VARCHAR(50),
+ID_Uye INT PRIMARY KEY NOT NULL,
+AD_Uye VARCHAR(50),
+SOYAD_Uye VARCHAR(50),
 Cinsiyet VARCHAR(1),
 DogumTarihi VARCHAR(10),
-Yaş VARCHAR(3), --kesikli
+Yas VARCHAR(3), --kesikli
 E_mail VARCHAR(50),
-Şifre VARCHAR(50),
+Sifre VARCHAR(50),
 Durum VARCHAR(50),
-Kayıt_Tarihi VARCHAR(10),
-Açıklama VARCHAR(100),
-Kullanıcı_Türü VARCHAR(50),
+Kayit_Tarihi VARCHAR(10),
+Aciklama VARCHAR(100),
+Kullanici_Turu VARCHAR(50),
 Seviye INT,
-Son_Giriş_Tarihi VARCHAR(10),
-Takip_Eden_Kullanıcı_Sayısı INT,
-Beğenen_Kullanıcı_Sayısı INT,
-Beğenilen_Kullanıcı_Sayısı INT,
-Profil_Bağlantısı VARCHAR(200),
-Son_Profil_Güncelleme_Tarihi VARCHAR(10),
+Son_Giris_Tarihi VARCHAR(10),
+Takip_Eden_Kullanici_Sayisi INT,
+Begenen_Kullanici_Sayisi INT,
+Begenilen_Kullanici_Sayisi INT,
+Profil_Baglantisi VARCHAR(200),
+Son_Profil_Guncelleme_Tarihi VARCHAR(10),
 )
 
 
