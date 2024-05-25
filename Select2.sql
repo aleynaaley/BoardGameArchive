@@ -1,13 +1,14 @@
-
-
 SELECT 
-    tblUye.UYE_ID, 
+    
     tblUye.AD_Üye, 
     tblUye.SOYAD_Üye, 
+    tblUlke.ULKE_AD, 
     Oyun_Sayısı,
     Puan_Verme_Sayısı
 FROM 
     tblUye
+LEFT JOIN 
+    tblUlke ON tblUye.ULKE_ID = tblUlke.ULKE_ID
 LEFT JOIN (
     SELECT 
         UYE_ID,
