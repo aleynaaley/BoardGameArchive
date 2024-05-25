@@ -5,7 +5,7 @@ SELECT
     uye.AD_Üye AS 'Üye Adı',
     uye.SOYAD_Üye AS 'Üye Soyadı',
     ulke.ULKE_AD AS 'Ülke',
-    COUNT(DISTINCT CASE WHEN yt.Ad_Yayıntürü = 'Ana Oyun' THEN y.YAYIN_ID END) AS 'Sahip Olduğu Ana Oyun Sayısı',
+    COUNT(DISTINCT CASE WHEN yt.Ad_Yayinturu = 'Ana Oyun' THEN y.YAYIN_ID END) AS 'Sahip Olduğu Ana Oyun Sayısı',
 	  COUNT(DISTINCT CASE WHEN yt.Ad_Yayinturu = 'Expansion' THEN y.YAYIN_ID END) AS 'Sahip Olduğu Expansion Sayısı',
     COUNT(DISTINCT opv.OYUN) AS 'Kaç Oyuna Puan Vermiş',
     AVG(CAST(opv.OYUN AS FLOAT)) AS 'Ortalama Puan',
