@@ -4,7 +4,7 @@ SELECT
     tblUye.UYE_ID, 
     tblUye.AD_Üye, 
     tblUye.SOYAD_Üye, 
-    Koleksiyon_Sayısı,
+    Oyun_Sayısı,
     Puan_Verme_Sayısı
 FROM 
     tblUye
