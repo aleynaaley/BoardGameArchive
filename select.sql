@@ -16,7 +16,7 @@ FROM tblUye uye
 
 LEFT JOIN tblUlke ulke ON uye.ULKE_ID = ulke.ULKE_ID
 LEFT JOIN tblYayin y ON uye.UYE_ID = y.UYE_ID
-LEFT JOIN tblYayinturu yt ON y.YAYINTURU_ID = yt.ID_Yayıntürü
+LEFT JOIN tblYayinturu yt ON y.YAYINTURU_ID = yt.ID_Yayinturu
 LEFT JOIN tblOyuna_puan_verir opv ON uye.UYE_ID = opv.KOLEKSIYON
 LEFT JOIN tblOyun_seanslar os ON uye.UYE_ID = os.OLUSTURAN_UYE_ID
 LEFT JOIN tbluye_oyun_oynar uoo ON uye.UYE_ID = uoo.UYE_ID
