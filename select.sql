@@ -1,6 +1,7 @@
 USE boardgame
 
-  -- SELECT 1
+  -- SELECT 1: tüm üyelerin adı, soyadı ülkesi, sahip olduğu expansion sayısı, kaç oyuna puan vermiş, 
+  -- ortalama kaç puan vermiş, kaç oyun oturumu oluşturmuş, kaç defa ticket to ride isimli oyunu oynamış gösteren sorgu
 SELECT 
     uye.AD_Üye AS 'Üye Adı',
     uye.SOYAD_Üye AS 'Üye Soyadı',
