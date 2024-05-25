@@ -12,7 +12,7 @@ SELECT
     tblUye.UYE_ID, 
     tblUye.AD_Üye, 
     tblUye.SOYAD_Üye,   
-    COUNT(CASE WHEN tbloyun_koleksiyon.OYUN_SAHIP_OLMA_TARIHI IS NOT NULL THEN tbloyun_koleksiyon.OYUN_ASILAD END) as Oyun_Sayısı 
+    COUNT(CASE WHEN tbloyun_koleksiyon.OYUN_SAHIP_OLMA_TARIHI IS NOT NULL THEN tbloyun_koleksiyon.OYUN_ID END) as Oyun_Sayısı 
 FROM 
     tblUye
 JOIN 
