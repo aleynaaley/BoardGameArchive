@@ -1,9 +1,9 @@
 -- sadece sütün isimlerini ve şeklini değiştirdim cümle aynı
 
 SELECT 
-    tblUye.AD_Üye, 
-    tblUye.SOYAD_Üye, 
-    tblUlke.ULKE_AD, 
+    tblUye.AD_Üye AS Uye_Adi, 
+    tblUye.SOYAD_Üye AS Uye_Soyadi, 
+    tblUlke.ULKE_AD AS Ulke_Adi, 
     Sahip_Oldugu_Ana_Oyun_Sayisi,
     Kac_Oyuna_Puan_Vermis
 
