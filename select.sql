@@ -22,28 +22,27 @@ WHERE tbloyun.OYUN_ASILAD = 'Ticket to Ride' GROUP BY tbluye_oyun_oynar.UYE_ID )
 --2.sorgu
 
 SELECT uye.AD_Üye AS Uye_Adi,
-	   uye.SOYAD_Üye AS Uye_Soyadi,
-       CONCAT(DATEDIFF(HOUR, uye.Son_Giriş_Tarihi, GETDATE()), ' Saat ', 
-              DATEDIFF(MINUTE, uye.Son_Giriş_Tarihi, GETDATE()), ' Dakika') AS Son_Giristen_Beri_Gecen_Sure,
-	  (
+uye.SOYAD_Üye AS Uye_Soyadi,
+CONCAT(DATEDIFF(HOUR, uye.Son_Giriş_Tarihi, GETDATE()), ' Saat ', 
+DATEDIFF(MINUTE, uye.Son_Giriş_Tarihi, GETDATE()), ' Dakika') AS Son_Giristen_Beri_Gecen_Sure,
+	(
        SELECT TOP 1 oy.OYUN_ASILAD     -- oyun tablosundan top 1'deki oyunu çekmek istiyoruz
        FROM tblOyun oy 
-	   INNER JOIN tblOyun_seanslar os ON oy.OYUN_ID = os.oyun_ID
+       INNER JOIN tblOyun_seanslar os ON oy.OYUN_ID = os.oyun_ID
        INNER JOIN tbluye_oyun_oynar uoo ON os.OYUNSEANS_ID = uoo.OYUNSEANS_ID
-	   WHERE uoo.UYE_ID = uye.UYE_ID 
+       WHERE uoo.UYE_ID = uye.UYE_ID 
        ORDER BY uoo.OYUNSEANS_ID DESC) AS Son_Satın_Alınan_Oyun
-	   FROM tblUye uye
+       FROM tblUye uye
        WHERE uye.UYE_ID IN (SELECT k.UYE_ID
-							FROM tblKoleksiyon k
-							-- oyun son bir ayda en çok oynanan ilk 3 oyunlardan biri mi
-						    WHERE k.OYUN_ID IN ( SELECT TOP 3 k.OYUN_ID
-												 FROM tblKoleksiyon k
-												 INNER JOIN tblOyun_seanslar os ON k.OYUN_ID = os.oyun_ID
-											      WHERE os.baslangic_tarihi BETWEEN DATEADD(MONTH, -1, GETDATE()) AND DATEADD(MONTH, 0, GETDATE())
-												 GROUP BY k.OYUN_ID
-											     ORDER BY COUNT(*) DESC
-											   )
-                               GROUP BY k.UYE_ID
-								HAVING COUNT(DISTINCT k.OYUN_ID) = 3 -- en çok oynana üç oyunun tamamına sahip olan üyeler
+       FROM tblKoleksiyon k  -- oyun son bir ayda en çok oynanan ilk 3 oyunlardan biri mi
+       WHERE k.OYUN_ID IN ( SELECT TOP 3 k.OYUN_ID
+       FROM tblKoleksiyon k
+       INNER JOIN tblOyun_seanslar os ON k.OYUN_ID = os.oyun_ID
+       WHERE os.baslangic_tarihi BETWEEN DATEADD(MONTH, -1, GETDATE()) AND DATEADD(MONTH, 0, GETDATE())
+       GROUP BY k.OYUN_ID
+       ORDER BY COUNT(*) DESC
+)
+        GROUP BY k.UYE_ID
+	HAVING COUNT(DISTINCT k.OYUN_ID) = 3 -- en çok oynana üç oyunun tamamına sahip olan üyeler
 )
  ORDER BY DATEDIFF(HOUR, uye.Son_Giriş_Tarihi, GETDATE()) DESC
