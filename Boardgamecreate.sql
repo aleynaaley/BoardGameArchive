@@ -145,3 +145,21 @@ INSERT INTO tblKoleksiyon (KOLEKSIYON_AD,ODENEN_UCRET,PARABIRIMI_ID,UYE_ID,OYUN_
 INSERT INTO tblOyun_seanslar (aciklama,OLUSTURAN_UYE_ID,KAZANAN_UYE_ID,oyun_ID) VALUES('oyunseansı',1,1,1);
 -- tbluye_oyun_oynar
 INSERT INTO tbluye_oyun_oynar (UYE_ID, OYUNSEANS_ID) VALUES (1, 1);
+
+
+
+---select 2. sorgu içinde şunu deneedim ama  geçen ayın en çok oynanan ilk üç oyun falan bu ne ya bu kadar yapabildim
+SELECT 
+    U.AD_Üye, 
+    U.SOYAD_Üye, 
+    O.OYUN_ASILAD AS Son_Satin_Aldigi_Oyun,
+    DATEDIFF(HOUR, U.Son_Giriş_Tarihi, GETDATE()) AS Saat_Geçmiş
+FROM 
+    tblUye U
+JOIN 
+    tblKoleksiyon K ON U.UYE_ID = K.UYE_ID
+JOIN 
+    tbloyun O ON K.OYUN_ID = O.OYUN_ID
+ORDER BY 
+    K.KOLEKSIYON_ENVANTERE_GIRIS_TARIHI DESC;
+
