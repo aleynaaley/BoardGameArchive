@@ -27,6 +27,23 @@ SELECT uye.AD_Üye AS Uye_Adi,
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	----------------------------
+
 ***CHATE TUĞBANINKİNİ İYİLEŞTİRMESİNİ SÖYLEDİM ŞÖYLE VERDİ
 -- Adım 1: Geçen ayın en çok oynanan ilk 3 oyunu belirleyin
 WITH TopGames AS (
