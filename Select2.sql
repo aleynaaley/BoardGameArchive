@@ -99,3 +99,35 @@ LEFT JOIN ( SELECT  tbluye_oyun_oynar.UYE_ID, COUNT(tbluye_oyun_oynar.OYNAR_ID) 
 			GROUP BY tbluye_oyun_oynar.UYE_ID
 		  ) AS TicketToRideOynamaSayisi ON tblUye.UYE_ID = TicketToRideOynamaSayisi.UYE_ID;
 
+
+
+
+--- deneme için veri ekledim 
+-- tblUlke
+INSERT INTO tblUlke (ULKE_AD) VALUES ('Türkiye');
+
+-- tblIl
+INSERT INTO tblIl (IL_AD, ULKE_ID) VALUES ('İstanbul', 1);
+
+-- tblIlce
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Zeytinburnu', 1);
+
+-- tblAdres
+INSERT INTO tblAdres (ADRES_AD, ULKE_ID, IL_KODU, ILCE_ID) VALUES ('Zeytinburnu Adres', 1, 1, 1);
+
+-- tbloyun
+INSERT INTO tbloyun (OYUN_ASILAD) VALUES ('Ticket t');
+
+-- tblUye
+INSERT INTO tblUye (AD_Üye, SOYAD_Üye, ULKE_ID, IL_ID, ILCE_ID) VALUES ('Ahmet', 'Yılmaz', 1, 1, 1);
+
+--TBLPARABİRİMİ
+INSERT INTO tblParaBirimi (PARABIRIMI_AD) VALUES ('tl');
+
+-- tblKoleksiyon
+INSERT INTO tblKoleksiyon (KOLEKSIYON_AD,ODENEN_UCRET,PARABIRIMI_ID,UYE_ID,OYUN_ID) VALUES ('Ahmet Koleksiyonu','200',1,1,1);
+--tblOyunseansı
+
+INSERT INTO tblOyun_seanslar (aciklama,OLUSTURAN_UYE_ID,KAZANAN_UYE_ID,oyun_ID) VALUES('oyunseansı',1,1,1);
+-- tbluye_oyun_oynar
+INSERT INTO tbluye_oyun_oynar (UYE_ID, OYUNSEANS_ID) VALUES (1, 1);
