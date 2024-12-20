@@ -472,6 +472,19 @@ INSERT INTO tbltur (TUR_AD) VALUES
 
 
 
+
+-- sp için gerekli olan tablolar
+INSERT INTO tblParaBirimi (PARABIRIMI_AD)
+VALUES 
+('TRY'),    -- Türk Lirası
+('USD'),    -- Amerikan Doları
+('EUR'),    -- Euro
+('GBP'),    -- İngiliz Sterlini
+('JPY');    -- Japon Yeni
+
+
+
+
 IF OBJECT_ID ( 'fncEnCokVakitGecirilenOyun') IS NOT NULL
 	BEGIN
 		-- Fonksiyon varsa sil
