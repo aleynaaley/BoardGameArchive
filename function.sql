@@ -7,12 +7,12 @@ INSERT INTO tbloyun
  YORUM_YAPAN_KULLANICI_SAYISI, EN_COK_OYUN_SURE, EN_AZ_OYUN_SURE, OY_VEREN_KULLANICI_SAYISI, YAYINLANDIGI_YIL)
 VALUES
 -- 1. Oyun
-('CATAN', 150, '2023-12-01', 'Steam', 
+('Catan', 150, '2023-12-01', 'Steam', 
  '2023-12-03', 'Dijital', 'RPG türünde mükemmel bir oyun.', 'Grafikler harika, hikaye sürükleyici.', 
  5000, 120, 10, 4800, '2015-05-19'),
 
 -- 2. Oyun
-('RUH ADASI', 200, '2024-01-15', 'Epic Games', 
+('Ruh Adası', 200, '2024-01-15', 'Epic Games', 
  '2024-01-17', 'Dijital', 'Görseller çok iyi, ancak hatalar giderilmeli.', 'İlk çıktığında sorunluydu, ama güncellemelerle iyileşti.', 
  3200, 90, 5, 3000, '2020-12-10'),
 
@@ -37,7 +37,82 @@ VALUES
 
  -- 7. Oyun
 ('Cyberpunk 2077', 200, '2023-06-15', 'GOG', '2023-06-17', 'Dijital', 'Grafik olarak oldukça iddialı.', 
- 'İçerik sorunları giderilirse çok başarılı.', 7200, 150, 20, 7000, '2020-12-10');
+ 'İçerik sorunları giderilirse çok başarılı.', 7200, 150, 20, 7000, '2020-12-10'),
+	
+--8.oyun
+('Everdell', 180, '2024-02-10', 'Amazon', 
+ '2024-02-12', 'Fiziksel', 'Strateji ve hikaye anlatımı sevenlere hitap ediyor.', 
+ 'Görsellik açısından büyüleyici bir masaüstü oyun.', 1200, 90, 30, 1100, '2018-08-01'),
+
+-- 9. Oyun: Nemesis
+('Nemesis', 250, '2023-11-20', 'BoardGameShop', 
+ '2023-11-22', 'Fiziksel', 'Hayatta kalma ve korku temalı bir masaüstü oyunu.', 
+ 'Alien teması sevenler için harika bir tercih.', 1500, 120, 45, 1450, '2018-01-15'),
+
+-- 10. Oyun: Brass: Birmingham
+('Brass: Birmingham', 220, '2024-01-05', 'Steam', 
+ '2024-01-07', 'Dijital', 'Ekonomi ve strateji türlerinin en iyilerinden biri.', 
+ 'Sanayi devrimi temalı strateji oyunu.', 2500, 120, 60, 2450, '2018-06-15'),
+
+-- 11. Oyun: Concordia
+('Concordia', 180, '2023-09-12', 'Epic Games', 
+ '2023-09-14', 'Dijital', 'Ticaret ve strateji tabanlı klasik bir masaüstü oyunu.', 
+ 'Basit kurallar, derin strateji.', 1700, 90, 45, 1650, '2013-10-01'),
+
+-- 12. Oyun: Root
+('Root', 210, '2023-10-10', 'Tabletopia', 
+ '2023-10-12', 'Dijital', 'Farklı ırkların mücadele ettiği asimetrik bir strateji oyunu.', 
+ 'Her bir fraksiyonun farklı oynanışı var.', 2300, 120, 30, 2200, '2018-09-01'),
+
+--13. Oyun: Wingspan
+('Wingspan', 150, '2023-08-01', 'BoardGameArena', 
+ '2023-08-03', 'Dijital', 'Kuş temalı, ödüllü bir strateji ve koleksiyon oyunu.', 
+ 'Harika görseller ve rahatlatıcı bir oynanış.', 4500, 75, 30, 4400, '2019-03-08'),
+
+-- 14. Oyun: Barrage
+('Barrage', 240, '2024-03-15', 'BoardGameShop', 
+ '2024-03-17', 'Fiziksel', 'Su kaynaklarını yönetmeye dayalı karmaşık bir strateji oyunu.', 
+ 'Ekonomi yönetimi ve kaynak kontrolü sevenler için ideal.', 900, 120, 60, 870, '2019-05-20'),
+
+-- 15. Oyun: Cascadia
+('Cascadia', 140, '2023-05-12', 'Amazon', 
+ '2023-05-14', 'Fiziksel', 'Doğal yaşam alanları kurmaya dayalı bir masaüstü oyunu.', 
+ 'Sade ve bağımlılık yapan bir bulmaca oyunu.', 3200, 45, 20, 3100, '2021-08-01'),
+
+-- 16. Oyun: Clans of Caledonia
+('Clans of Caledonia', 210, '2024-01-22', 'Steam', 
+ '2024-01-24', 'Dijital', 'İskoçya temalı ekonomi yönetimi oyunu.', 
+ 'Çok derin ve zorlu bir strateji oyunu.', 1400, 120, 60, 1350, '2017-10-01'),
+
+-- 17. Oyun: Gloomhaven
+('Gloomhaven', 300, '2023-07-10', 'Steam', 
+ '2023-07-12', 'Dijital', 'Dünyaca ünlü taktiksel bir zindan keşif oyunu.', 
+ 'RPG, taktik ve stratejinin birleşimi.', 3500, 150, 60, 3400, '2017-12-01'),
+
+-- 18. Oyun: Splendor
+('Splendor', 130, '2022-11-15', 'Steam', 
+ '2022-11-17', 'Dijital', 'Elmas ticareti yapmaya dayalı klasik bir strateji oyunu.', 
+ 'Hızlı oynanabilirlik ve basit kurallar.', 5000, 30, 10, 4900, '2014-03-15'),
+
+-- 19. Oyun: Terraforming Mars
+('Terraforming Mars', 280, '2024-04-01', 'BoardGameShop', 
+ '2024-04-03', 'Fiziksel', 'Mars’ı yaşanabilir hale getirme üzerine kurulu bir strateji oyunu.', 
+ 'Derin strateji gerektiren, yoğun bir oyun.', 1800, 180, 90, 1750, '2016-06-01'),
+
+-- 20. Oyun: 7 Wonders
+('7 Wonders', 170, '2023-02-20', 'Amazon', 
+ '2023-02-22', 'Fiziksel', 'Kart tabanlı bir medeniyet inşa etme oyunu.', 
+ 'Hızlı oynanış ve stratejik karar alma gerektiren bir oyun.', 6000, 30, 10, 5900, '2010-08-01'),
+
+-- 21. Oyun: Azul
+('Azul', 150, '2023-12-25', 'BoardGameShop', 
+ '2023-12-27', 'Fiziksel', 'Portekiz çinileriyle oluşturulan görsel bir şaheser.', 
+ 'Basit kurallar ve görselliği ile ödüller aldı.', 8000, 30, 15, 7900, '2017-10-15'),
+
+-- 22. Oyun: Agricola
+('Agricola', 200, '2023-03-10', 'BoardGameArena', 
+ '2023-03-12', 'Dijital', 'Çiftlik yönetimi üzerine kurulu bir strateji oyunu.', 
+ 'İşçileri yerleştir ve kaynakları topla.', 4200, 120, 60, 4100, '2007-10-01');
 
 
 
@@ -135,29 +210,116 @@ INSERT INTO tblIl (IL_AD, ULKE_ID) VALUES
 
 
 
-INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Merkez', 1);
-INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Kadıköy', 34);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Seyhan', 1);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Kahta', 2);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Merkez', 3);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Doğubayazıt', 4);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Merzifon', 5);
 INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Çankaya', 6);
-INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Konak', 35);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Muratpaşa', 7);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Hopa', 8);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Efeler', 9);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Karesi', 10);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Bozüyük', 11);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Genç', 12);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Tatvan', 13);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Gerede', 14);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Bucak', 15);
 INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Osmangazi', 16);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Biga', 17);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Ilgaz', 18);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Osmancık', 19);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Pamukkale', 20);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Bağlar', 21);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Keşan', 22);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Kovancılar', 23);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Üzümlü', 24);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Palandöken', 25);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Tepebaşı', 26);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Şahinbey', 27);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Espiye', 28);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Torul', 29);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Yüksekova', 30);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('İskenderun', 31);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Yalvaç', 32);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Tarsus', 33);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Kadıköy', 34);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Konak', 35);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Kağızman', 36);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Tosya', 37);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Melikgazi', 38);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Lüleburgaz', 39);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Kaman', 40);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('İzmit', 41);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Selçuklu', 42);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Tavşanlı', 43);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Battalgazi', 44);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Akhisar', 45);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Elbistan', 46);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Kızıltepe', 47);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Bodrum', 48);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Malazgirt', 49);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Ürgüp', 50);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Bor', 51);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Altınordu', 52);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Ardeşen', 53);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Adapazarı', 54);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Atakum', 55);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Baykan', 56);
 
 
 
--- tblOyuncu_sayısı_oylaması tablosuna veri ekleme
+
+
 INSERT INTO tblOyuncu_sayısı_oylaması (OY_ENIYI, OY_TAVSIYE_EDILIR, OY_TAVSIYE_EDILMAZ, OYUN_ID) VALUES
-(1, 1, 0, 1),
-(0, 1, 0, 2),
-(1, 0, 1, 3),
-(1, 1, 0, 4),
-(0, 0, 1, 5);
+(1, 1, 0, 1),  -- 1. Oyun
+(0, 1, 0, 2),  -- 2. Oyun
+(1, 0, 1, 3),  -- 3. Oyun
+(1, 1, 0, 4),  -- 4. Oyun
+(0, 0, 1, 5),  -- 5. Oyun
+(1, 1, 1, 6),  -- 6. Oyun
+(0, 1, 1, 7),  -- 7. Oyun
+(1, 0, 0, 8),  -- 8. Oyun
+(0, 1, 0, 9),  -- 9. Oyun
+(1, 1, 0, 10), -- 10. Oyun
+(1, 0, 1, 11), -- 11. Oyun
+(0, 0, 1, 12), -- 12. Oyun
+(1, 1, 0, 13), -- 13. Oyun
+(0, 1, 0, 14), -- 14. Oyun
+(1, 0, 1, 15), -- 15. Oyun
+(1, 1, 0, 16), -- 16. Oyun
+(0, 0, 1, 17), -- 17. Oyun
+(1, 1, 1, 18), -- 18. Oyun
+(0, 1, 1, 19), -- 19. Oyun
+(1, 0, 0, 20), -- 20. Oyun
+(0, 1, 0, 21), -- 21. Oyun
+(1, 1, 0, 22); -- 22. Oyun
 
--- tblYas_oylamasi tablosuna veri ekleme
-INSERT INTO tblYas_oylamasi (YAS, OYUN_ID) VALUES
-(18, 1),
-(25, 2),
-(30, 3),
-(40, 4),
-(50, 5);
+
+INSERT INTO tblYas_oylamasi (YAS, OYUN_ID) VALUES 
+(18, 1),   -- 1. Oyun: Genç yaş grubu oynuyor
+(25, 2),   -- 2. Oyun: Genç yetişkinler tercih ediyor
+(30, 3),   -- 3. Oyun: Orta yaş grubunun ilgi alanı
+(35, 4),   -- 4. Oyun: Strateji seven yetişkinler
+(22, 5),   -- 5. Oyun: Üniversite çağındaki gençler oynuyor
+(40, 6),   -- 6. Oyun: Olgun yaş grubunun tercihi
+(28, 7),   -- 7. Oyun: Genç ve yetişkin karışık
+(33, 8),   -- 8. Oyun: Zeka oyunlarını seven yetişkinler
+(19, 9),   -- 9. Oyun: Lise ve üniversite öğrencileri
+(26, 10),  -- 10. Oyun: Yetişkin ve gençler arasında popüler
+(21, 11),  -- 11. Oyun: Genç oyuncular tercih ediyor
+(45, 12),  -- 12. Oyun: Strateji ve simülasyon seven olgun oyuncular
+(50, 13),  -- 13. Oyun: Daha yaşlı kullanıcı kitlesine hitap ediyor
+(29, 14),  -- 14. Oyun: Yetişkin oyuncular
+(23, 15),  -- 15. Oyun: Genç yetişkinler için popüler
+(32, 16),  -- 16. Oyun: Orta yaş grubunda tercih edilen oyun
+(38, 17),  -- 17. Oyun: Yetişkinlerin stratejiye ilgisi
+(20, 18),  -- 18. Oyun: Genç üniversite öğrencileri
+(27, 19),  -- 19. Oyun: Genç yetişkinler ve ofis çalışanları
+(36, 20),  -- 20. Oyun: Olgun kullanıcılar tarafından beğenilen oyun
+(24, 21),  -- 21. Oyun: Öğrenciler tarafından sıkça oynanıyor
+(42, 22);  -- 22. Oyun: Orta yaş grubunun ilgisini çeken oyun
+
 
 -- tblKarmasiklik_oylamasi tablosuna veri ekleme
 INSERT INTO tblKarmasiklik_oylamasi (OY_KOLAY, OY_ORTA, OY_ZOR, OYUN_ID) VALUES
