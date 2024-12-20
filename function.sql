@@ -177,7 +177,7 @@ INSERT INTO tblDil_bagimliligi_oylamasi (OY_BAZI_METINLER_ICIN_GEREKLI, OY_ORTA_
 
 
 
- INSERT INTO tblUye 
+ INSERT INTO tblUye         //değişecekkk kullanıc türü 
 (AD_Üye, SOYAD_Üye, Cinsiyet, DOGUMTARIHI, E_mail, Şifre, Durum, Kayıt_Tarihi, Açıklama, Kullanıcı_Türü, 
  Seviye, Son_Giriş_Tarihi, Takip_Eden_Kullanıcı_Sayısı, Beğenen_Kullanıcı_Sayısı, Beğenilen_Kullanıcı_Sayısı, 
  Profil_Bağlantısı, Son_Profil_Güncelleme_Tarihi, ULKE_ID, IL_ID, ILCE_ID, OYUNCU_SAYISI_OYLAMASI_ID, 
@@ -220,7 +220,7 @@ VALUES
 
 
 -- tblOyun_seanslar tablosuna veri ekleme (güncellenmiş)
-INSERT INTO tblOyun_seanslar (aciklama, baslangic_tarihi, bitis_tarihi, OLUSTURAN_UYE_ID, KAZANAN_UYE_ID, oyun_ID) VALUES
+INSERT INTO tblOyun_seanslar (aciklama, baslangic_tarihi, bitis_tarihi, OLUSTURAN_UYE_ID, KAZANAN_UYE_ID, oyun_ID) VALUES    // değişecek 
 ('Oyun 5 Seansı', '2024-12-04 03:00:00', '2024-12-04 03:20:00', 14, 3, 4),
 ('Oyun 1 Seansı', '2024-12-01 10:00:00', '2024-12-01 10:40:00', 3, 10, 1),
 ('Oyun 2 Seansı', '2024-12-01 12:00:00', '2024-12-01 12:40:00', 10, 11, 2),
@@ -261,7 +261,7 @@ INSERT INTO tblOyun_seanslar (aciklama, baslangic_tarihi, bitis_tarihi, OLUSTURA
 
 
 
-INSERT INTO tbluye_oyun_oynar (UYE_ID, OYUNSEANS_ID) VALUES
+INSERT INTO tbluye_oyun_oynar (UYE_ID, OYUNSEANS_ID) VALUES  //değişiecek 
 (3, 2),
 (10, 3),
 (11, 4),
@@ -297,6 +297,16 @@ INSERT INTO tbluye_oyun_oynar (UYE_ID, OYUNSEANS_ID) VALUES
 (13, 34),
 (14, 35),
 (15, 36);
+
+INSERT INTO tbltur (TUR_AD) VALUES 
+('Strateji'), 
+('Aksiyon'), 
+('Macera'), 
+('Rol Yapma (RPG)'), 
+('Simülasyon'), 
+('Spor'), 
+('Yarış'), 
+('Bulmaca');
 
 
 
@@ -334,3 +344,37 @@ GO
 SELECT dbo.fncEnCokVakitGecirilenOyun(12) AS EnCokOynananOyun;
 
 
+
+
+
+-----database de kullanılan fonksiyon 
+
+
+
+
+------uye ve oyuna göre oynanan oyun sayısı 
+CREATE FUNCTION fn_ToplamOynananOyun(@UYE_ID INT, @OYUN_ID INT)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @ToplamOyunSayisi INT;
+
+    -- Oyuncunun belirli bir oyunu kaç kez oynadığını hesaplayan sorgu
+    SELECT 
+        @ToplamOyunSayisi = COUNT(*) 
+    FROM 
+        tblOyun_seanslar OS
+    INNER JOIN 
+        tbloyun o ON o.OYUN_ID = OS.oyun_ID
+    WHERE 
+        OS.oyun_ID = @OYUN_ID 
+        AND (OS.OLUSTURAN_UYE_ID = @UYE_ID OR OS.KAZANAN_UYE_ID = @UYE_ID);
+
+    -- Hesaplanan toplam oyun sayısını döndürüyoruz
+    RETURN @ToplamOyunSayisi;
+END
+GO
+
+
+SELECT dbo.fn_ToplamOynananOyun(15,1) AS toplamoyunsayısı;
+GO
