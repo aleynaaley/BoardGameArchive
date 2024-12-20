@@ -46,3 +46,13 @@ DATEDIFF(MINUTE, uye.Son_Giriş_Tarihi, GETDATE()), ' Dakika') AS Son_Giristen_B
 	HAVING COUNT(DISTINCT k.OYUN_ID) = 3 -- en çok oynana üç oyunun tamamına sahip olan üyeler
 )
  ORDER BY DATEDIFF(HOUR, uye.Son_Giriş_Tarihi, GETDATE()) DESC
+
+
+
+
+
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Merkez', 1);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Kadıköy', 34);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Çankaya', 6);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Konak', 35);
+INSERT INTO tblIlce (ILCE_AD, IL_KODU) VALUES ('Osmangazi', 16);
