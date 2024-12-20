@@ -103,7 +103,7 @@ CREATE TABLE tblDil_bagimliligi_oylamasi
 )
 GO
 
-CREATE TABLE tblUye( -- SON_GUNCELLEME diye bir tarih alanı eklenecek
+CREATE TABLE tblUye(
 	UYE_ID INT IDENTITY(1,1) PRIMARY KEY,
 	AD_Üye VARCHAR(50),
 	SOYAD_Üye VARCHAR(50),
