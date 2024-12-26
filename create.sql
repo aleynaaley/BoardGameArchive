@@ -1,5 +1,5 @@
-﻿-- database oluşturur
-CREATE DATABASE boardgame
+-- database oluşturur
+CREATE DATABASE BoardGame
 
 -- boardgame adlı database üzerinde işlem yapacağım
 USE boardgame
@@ -136,7 +136,8 @@ GO
 
 create table tblRozet(
 	ROZET_ID INT IDENTITY(1,1) PRIMARY KEY,
-	ROZET_AD varchar(50)
+	ROZET_AD varchar(50),
+	UYE_ID INT FOREIGN KEY REFERENCES tblUye(UYE_ID) NOT NULL,
 )
 GO
 
@@ -337,13 +338,6 @@ CREATE TABLE tblOyuna_yorum_yapar(
 )
 GO
 	
----ROZET VE UYE
-CREATE TABLE tblUye_sahiptir_rozet(
-	  ID INT IDENTITY(1,1) PRIMARY KEY,
-	  UYE_ID INT FOREIGN KEY REFERENCES tblUye(UYE_ID) NOT NULL,
-	  ROZET_ID INT FOREIGN KEY REFERENCES tblRozet(ROZET_ID) NOT NULL,
-)
-GO
 	
 --UYE VE OYUN SEANSLARI İLİŞKİ TABLOSU
 CREATE TABLE tbluye_oyun_oynar(
@@ -411,5 +405,6 @@ CREATE TABLE tblYenioyun_oyunun_yerine_geçer
 	
 )
 GO
+
 
 
