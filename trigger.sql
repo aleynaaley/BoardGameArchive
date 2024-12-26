@@ -14,11 +14,8 @@ IF OBJECT_ID('trg_KoleksiyonRozetVeProfilGuncelleme') IS NOT NULL
 GO
 
 /* Bu trigger, tblKoleksiyon tablosuna yapılan INSERT veya DELETE işlemleri sonrasında:
-    Kullanıcının toplam oyun sayısını hesaplar.
- 2. Eğer oyun sayısı 15'i aşarsa, işlem iptal edilir.
- 3. Toplam oyun sayısına göre kullanıcının rozetini günceller (Amatör, Usta, Efsane Koleksiyoncu).
- 4. Kullanıcı profilini günceller veya yeni bir profil kaydı ekler.
- 5. Hata durumunda işlemi geri alır ve hata mesajı döner.*/
+  Kullanıcının toplam oyun sayısını hesaplar.Eğer oyun sayısı 15'i aşarsa, işlem iptal edilir.Toplam oyun sayısına göre kullanıcının rozetini günceller (Amatör, Usta, Efsane Koleksiyoncu).
+  Kullanıcı profilini günceller veya yeni bir profil kaydı ekler.Hata durumunda işlemi geri alır ve hata mesajı döner.*/
 
 CREATE TRIGGER trg_KoleksiyonRozetVeProfilGuncelleme
 ON tblKoleksiyon
