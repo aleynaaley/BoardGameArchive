@@ -28,10 +28,10 @@ BEGIN
             THROW 50003, 'Oyun zaten koleksiyonda', 1;
 
         -- Üyelik türünü ve koleksiyondaki oyun sayısını bul
-        DECLARE @kullanıcıTuru NVARCHAR(20);
+        DECLARE @durum NVARCHAR(20);
         DECLARE @sahipOlduguOyunSayısı INT;
 
-        SELECT @kullanıcıTuru = Kullanıcı_Türü
+        SELECT @durum = Durum
         FROM tblUye
         WHERE UYE_ID = @uyeId;
 
@@ -40,7 +40,7 @@ BEGIN
         WHERE UYE_ID = @uyeId;
 
         -- kullanıcı türü ücretsizse ve 11. oyunu eklemek istiyorsa hata mesajı dönecek
-        IF @kullanıcıTuru = 'Ücretsiz' AND @sahipOlduguOyunSayısı >= 10
+        IF @durum = 'Ücretsiz' AND @sahipOlduguOyunSayısı >= 10
             THROW 50004, 'Ücretsiz üyelik için koleksiyon sınırı 10 oyundur.', 1;
 
         -- Oyunu koleksiyona ekle
@@ -85,25 +85,46 @@ WHERE UYE_ID = 1
 
 
 -- geçersiz kullanıcı ekleme
-DECLARE @x INT = 999; -- Kullanıcı ID'si
-DECLARE @y INT = 5; -- Oyun ID'si
+DECLARE @A INT = 999; -- Kullanıcı ID'si
+DECLARE @B INT = 5; -- Oyun ID'si
 
-EXEC sp_OyunEkleme @uyeId = @x, @oyunId = @y;
+EXEC sp_OyunEkleme @uyeId = @A, @oyunId = @B;
 
 
 
 
 -- geçersiz oyun ekleme
-DECLARE @x INT = 1; -- Kullanıcı ID'si
-DECLARE @y INT = 25; -- Oyun ID'si
+DECLARE @C INT = 1; -- Kullanıcı ID'si
+DECLARE @D INT = 25; -- Oyun ID'si
 
-EXEC sp_OyunEkleme @uyeId = @x, @oyunId = @y;
+EXEC sp_OyunEkleme @uyeId = @C, @oyunId = @D;
 
 
 
--- oyunu ikinci kez eklemeye
-DECLARE @x INT = 1; -- Kullanıcı ID'si
-DECLARE @y INT = 5; -- Oyun ID'si
+-- oyunu ikinci kez ekleyemez
+DECLARE @E INT = 1; -- Kullanıcı ID'si
+DECLARE @F INT = 5; -- Oyun ID'si
 
-EXEC sp_OyunEkleme @uyeId = @x, @oyunId = @y;
+EXEC sp_OyunEkleme @uyeId = @E, @oyunId = @F;
+
+
+
+-- ücretiz üyeler 10dan fazla oyun ekleyemez
+DECLARE @x INT = 9; -- Ücretsiz Kullanıcı ID'si
+DECLARE @y INT = 1; -- Başlangıç Oyun ID'si 
+
+WHILE @y <= 12
+BEGIN
+    BEGIN TRY
+        EXEC sp_OyunEkleme @uyeId = @x, @oyunId = @y;
+    END TRY
+    BEGIN CATCH
+        PRINT ERROR_MESSAGE();
+    END CATCH;
+    
+    SET @y = @y + 1;
+END
+
+
+
 
