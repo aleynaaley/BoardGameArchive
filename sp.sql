@@ -1,7 +1,4 @@
 
-
-use BOARDGAMEARCHIEVE
-
 IF OBJECT_ID('sp_OyunEkleme') IS NOT NULL
 	BEGIN
 	    DROP PROCEDURE sp_OyunEkleme;
