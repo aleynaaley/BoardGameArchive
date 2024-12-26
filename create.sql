@@ -122,7 +122,7 @@ CREATE TABLE tblUye(
 	Beğenen_Kullanıcı_Sayısı INT,
 	Beğenilen_Kullanıcı_Sayısı INT,
 	Profil_Bağlantısı VARCHAR(200),
-	Son_Profil_Güncelleme_Tarihi VARCHAR(10),
+	Son_Profil_Güncelleme_Tarihi VARCHAR(20),
 	ULKE_ID INT FOREIGN KEY REFERENCES tblUlke(ULKE_ID) NOT NULL,
 	IL_ID INT FOREIGN KEY REFERENCES tblIl(IL_ID) NOT NULL,
 	ILCE_ID INT FOREIGN KEY REFERENCES tblIlce(ILCE_ID) NOT NULL,
