@@ -1,24 +1,26 @@
 
+
+-- View ın önceden var olup olmadığını kontrol ediyoruz 
 IF OBJECT_ID ( 'vw_UyeOyunAnaliz') IS NOT NULL
 	BEGIN
-		-- Fonksiyon varsa sil
+		-- view varsa sil
 		DROP VIEW vw_UyeOyunAnaliz;
 	END
 GO
 
-
-        
+--Uyelerin ID, AD-SOYAD, sisteme son giriş tarihleri , oynadıkları oyunları ID , adı , oyunu kaç kez oynadıkları ve aç kez kazandıkları , kazanma yüzdeleri ve bu yüzdeye göre oyundaki başarı durumunu oluşturan view 
 CREATE VIEW vw_UyeOyunAnaliz AS
 SELECT 
     u.UYE_ID,
-    u.AD_Üye + ' ' + u.SOYAD_Üye AS Ad_Soyad,
-	CONVERT(DATE, u.Son_Giriş_Tarihi) AS Son_Giris_Tarihi,  -- son giriş tarihi varchar olarak tutuluyor biz bunu DATE tipine çeviriyoruz.
+    u.AD_Üye + ' ' + u.SOYAD_Üye AS Ad_Soyad,  -- Ad ve Soyadı birleştiriyoruz
+	CONVERT(DATE, u.Son_Giriş_Tarihi) AS Son_Giris_Tarihi,
     o.OYUN_ID,
     o.OYUN_ASILAD,
-    dbo.fn_ToplamOynananOyun(u.UYE_ID, o.OYUN_ID) AS Oyun_Oynama_Sayisi,  -- belirtilen oyunu belirtilen uye kaç kez oynadı.
-    COUNT(CASE WHEN os.KAZANAN_UYE_ID = u.UYE_ID THEN 1 END) AS Kazanma_Sayisi,    -- Oyunu kaç kez kazandı
+    dbo.fn_ToplamOynananOyun(u.UYE_ID, o.OYUN_ID) AS Oyun_Oynama_Sayisi,  -- Oyunu kaç kez oynadı
+    -- Oyunu kaç kez kazandı
+    COUNT(CASE WHEN os.KAZANAN_UYE_ID = u.UYE_ID THEN 1 END) AS Kazanma_Sayisi,
 
-    -- Kazanma yüzdesi (eğer Oyun Oynama Sayısı sıfırsa 0 döner)
+    -- Kazanma yüzdesi (eğer Oyun Oynama Sayısı sıfırsa 0 döner) ve % işareti eklenmiş hali
     '%' + FORMAT((COUNT(CASE WHEN os.KAZANAN_UYE_ID = u.UYE_ID THEN 1 END) * 100.0) /
 			NULLIF(dbo.fn_ToplamOynananOyun(u.UYE_ID, o.OYUN_ID), 0),'N2') AS Kazanma_Yuzdesi,  -- Kazanma yüzdesini % işareti ve ',' sonra 2 basamak ile göstermek için
     
@@ -35,6 +37,7 @@ SELECT
 	GROUP BY 
 		  o.OYUN_ID, u.UYE_ID, o.OYUN_ASILAD, u.AD_Üye, u.SOYAD_Üye, u.Son_Giriş_Tarihi;
 GO
+
 
 
 SELECT 
