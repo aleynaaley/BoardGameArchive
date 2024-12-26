@@ -1,3 +1,4 @@
+--Databasede 'sp_OyunEkleme' adlı bir procedure kontrolü yapar. Varsa drop ile siler.
 
 IF OBJECT_ID('sp_OyunEkleme') IS NOT NULL
 	BEGIN
@@ -5,6 +6,7 @@ IF OBJECT_ID('sp_OyunEkleme') IS NOT NULL
 	END
 GO
 
+		
 CREATE PROCEDURE sp_OyunEkleme
     @uyeId INT,
     @oyunId INT
@@ -13,14 +15,15 @@ BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-        -- Kullanıcı ve oyunun varlığını kontrol et
+        -- Kullanıcının varlığını kontrol ediyor
         IF NOT EXISTS (SELECT 1 FROM tblUye WHERE UYE_ID = @uyeId)
             THROW 50001, 'Geçersiz kullanıcı ID', 1;
 
+        -- Oyunun varlığını kontrol ediyor
         IF NOT EXISTS (SELECT 1 FROM tbloyun WHERE OYUN_ID = @oyunId)
             THROW 50002, 'Geçersiz oyun ID', 1;
 
-        -- Oyunun zaten koleksiyonda olup olmadığını kontrol et
+        -- Oyunun koleksiyonda olup olmadığını kontrol et
         IF EXISTS (SELECT 1 FROM tblKoleksiyon WHERE UYE_ID = @uyeId AND OYUN_ID = @oyunId)
             THROW 50003, 'Oyun zaten koleksiyonda', 1;
 
@@ -36,9 +39,9 @@ BEGIN
         FROM tblKoleksiyon
         WHERE UYE_ID = @uyeId;
 
-        -- kullanıcı türü ücretsizse ve 11. oyunu eklemek istiyorsa hata mesajı dönecek
-        IF @durum = 'Ücretsiz' AND @sahipOlduguOyunSayısı >= 10
-            THROW 50004, 'Ücretsiz üyelik için koleksiyon sınırı 10 oyundur.', 1;
+        -- kullanıcı durumu ücretsizse ve 5 ten daha fazla oyun eklemek isterse hata mesajı dönüyor.
+        IF @durum = 'Ücretsiz' AND @sahipOlduguOyunSayısı >= 5
+            THROW 50004, 'Ücretsiz üyelik için koleksiyon sınırı 5 oyundur.', 1;
 
         -- Oyunu koleksiyona ekle
         INSERT INTO tblKoleksiyon (KOLEKSIYON_AD, ODENEN_UCRET, PARABIRIMI_ID, UYE_ID, OYUN_ID)
@@ -70,47 +73,35 @@ END;
 -- 1 ID'li kullanıcının koleksiyonuna 5 ID'li oyunu ekledik
 DECLARE @x INT = 1; -- Kullanıcı ID'si
 DECLARE @y INT = 5; -- Oyun ID'si
-
 EXEC sp_OyunEkleme @uyeId = @x, @oyunId = @y;
-
 
 SELECT * FROM tblKoleksiyon
 WHERE UYE_ID = 1
 
 
-
-
-
 -- geçersiz kullanıcı ekleme
 DECLARE @A INT = 999; -- Kullanıcı ID'si
 DECLARE @B INT = 5; -- Oyun ID'si
-
 EXEC sp_OyunEkleme @uyeId = @A, @oyunId = @B;
-
-
 
 
 -- geçersiz oyun ekleme
 DECLARE @C INT = 1; -- Kullanıcı ID'si
 DECLARE @D INT = 25; -- Oyun ID'si
-
 EXEC sp_OyunEkleme @uyeId = @C, @oyunId = @D;
-
 
 
 -- oyunu ikinci kez ekleyemez
 DECLARE @E INT = 1; -- Kullanıcı ID'si
 DECLARE @F INT = 5; -- Oyun ID'si
-
 EXEC sp_OyunEkleme @uyeId = @E, @oyunId = @F;
 
 
-
--- ücretiz üyeler 10dan fazla oyun ekleyemez
+-- ücretiz üyeler 5ten fazla oyun ekleyemez
 DECLARE @x INT = 9; -- Ücretsiz Kullanıcı ID'si
 DECLARE @y INT = 1; -- Başlangıç Oyun ID'si 
 
-WHILE @y <= 12
+WHILE @y <= 6
 BEGIN
     BEGIN TRY
         EXEC sp_OyunEkleme @uyeId = @x, @oyunId = @y;
